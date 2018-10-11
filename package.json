@@ -3,14 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@blueprintjs/core": "^3.7.0",
+    "@blueprintjs/icons": "^3.2.0",
+    "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
-    "react-scripts": "2.0.4"
+    "react-scripts": "2.0.4",
+    "reflexbox": "^3.0.1"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^17.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "lint": "eslint src/",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

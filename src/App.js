@@ -1,25 +1,32 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import '@blueprintjs/core/lib/css/blueprint.css';
+import '@blueprintjs/icons/lib/css/blueprint-icons.css';
+import {
+  Navbar, Alignment, NavbarGroup, NavbarHeading,
+} from '@blueprintjs/core';
+import { Flex, Box } from 'reflexbox';
+import Nav from './components/Nav';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <Flex align="center">
+          <Nav />
+        </Flex>
+        <Flex align="center">
+          <Flex p={2} wrap>
+            <Box auto>From</Box>
+            <Box auto>Two</Box>
+            <Box auto>Submit</Box>
+          </Flex>
+        </Flex>
       </div>
     );
   }
