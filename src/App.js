@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import '@blueprintjs/core/lib/css/blueprint.css';
-import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 import {
-  Navbar, Alignment, NavbarGroup, NavbarHeading,
-} from '@blueprintjs/core';
+  Grid, Divider, Button, Dropdown, Input,
+} from 'semantic-ui-react';
 import { Flex, Box } from 'reflexbox';
 import Nav from './components/Nav';
-import './App.css';
+import './zApp.css';
+import { randomNepalImage } from './helpers';
+import InputSection from './components/InputSection';
+import StatistcsSection from './components/StatistcsSection';
 
 class App extends Component {
   constructor(props) {
@@ -17,16 +18,20 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Flex align="center">
+        <Grid.Row>
           <Nav />
-        </Flex>
-        <Flex align="center">
-          <Flex p={2} wrap>
-            <Box auto>From</Box>
-            <Box auto>Two</Box>
-            <Box auto>Submit</Box>
-          </Flex>
-        </Flex>
+          <Divider />
+        </Grid.Row>
+        <Grid.Row
+          className="content"
+          style={{ backgroundImage: `url(/images/${randomNepalImage()})` }}
+        >
+          <InputSection />
+          <Divider />
+        </Grid.Row>
+        <Grid.Row>
+          <StatistcsSection />
+        </Grid.Row>
       </div>
     );
   }

@@ -1,13 +1,9 @@
 import React from 'react';
-import {
-  Navbar, Alignment, NavbarGroup, NavbarHeading,
-} from '@blueprintjs/core';
+import { Input, Menu } from 'semantic-ui-react';
 
 const Nav = () => (
-  <Navbar>
-    <NavbarGroup align={Alignment.LEFT}>
-      <NavbarHeading>BhadaDar</NavbarHeading>
-    </NavbarGroup>
-  </Navbar>
+  <Menu secondary>
+    <Menu.Item name="BhadaDar" />
+  </Menu>
 );
 export default Nav;
