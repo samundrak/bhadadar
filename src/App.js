@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
-import {
-  Grid, Divider, Button, Dropdown, Input,
-} from 'semantic-ui-react';
-import { Flex, Box } from 'reflexbox';
-import Nav from './components/Nav';
+import 'antd/dist/antd.css';
 import './zApp.css';
-import { randomNepalImage } from './helpers';
-import InputSection from './components/InputSection';
-import StatistcsSection from './components/StatistcsSection';
+import AppLayout from './components/Layout';
+import Home from './pages/Home';
 
 class App extends Component {
   constructor(props) {
@@ -18,20 +13,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Grid.Row>
-          <Nav />
-          <Divider />
-        </Grid.Row>
-        <Grid.Row
-          className="content"
-          style={{ backgroundImage: `url(/images/${randomNepalImage()})` }}
-        >
-          <InputSection />
-          <Divider />
-        </Grid.Row>
-        <Grid.Row>
-          <StatistcsSection />
-        </Grid.Row>
+        <AppLayout>
+          <Home />
+        </AppLayout>
       </div>
     );
   }
