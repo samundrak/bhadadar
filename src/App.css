@@ -1,0 +1,104 @@
+html body {
+  margin: auto;
+}
+.container {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.header {
+  background-color: rgb(236, 233, 233);
+  min-height: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start space-evenly;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 5px 0px;
+}
+
+.title {
+  padding-left: 1%;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+.content {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+.content > .numbers {
+  flex: 1;
+}
+.content > .maps {
+  flex: 2;
+}
+
+.content > .hero {
+  background: url(./nepal.jpeg);
+  flex: 2;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-size: cover;
+  background-position: center;
+}
+.hero > .selection {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.suggestion > div {
+  border-radius: 0px;
+  padding: 12px 0;
+}
+.selection > .dropdown {
+  flex: 2;
+}
+
+.selection > .button {
+  flex: 1;
+  width: 90%;
+}
+
+.btn-primary {
+  color: white;
+  background-color: blueviolet;
+  border-style: none;
+  cursor: pointer;
+  background-color: #00c778;
+  color: #fff;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 1.5rem;
+  padding: 19px 0;
+  box-sizing: border-box;
+  border: none;
+  width: 100%;
+  outline: 0;
+}
+
+@media screen and (max-width: 700px) {
+  .hero > .selection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .selection > .dropdown {
+    flex: 1;
+    width: 90%;
+  }
+
+  .selection > .button {
+    flex: 1;
+    margin: 1%;
+    width: 90%;
+  }
+}
