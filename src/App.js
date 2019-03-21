@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
-import {
-  Grid, Divider, Button, Dropdown, Input,
-} from 'semantic-ui-react';
-import { Flex, Box } from 'reflexbox';
-import Nav from './components/Nav';
-import './zApp.css';
-import { randomNepalImage } from './helpers';
-import InputSection from './components/InputSection';
-import StatistcsSection from './components/StatistcsSection';
+import './App.css';
+import Suggestion from './components/Suggestion';
 
 class App extends Component {
   constructor(props) {
@@ -17,21 +10,30 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Grid.Row>
-          <Nav />
-          <Divider />
-        </Grid.Row>
-        <Grid.Row
-          className="content"
-          style={{ backgroundImage: `url(/images/${randomNepalImage()})` }}
-        >
-          <InputSection />
-          <Divider />
-        </Grid.Row>
-        <Grid.Row>
-          <StatistcsSection />
-        </Grid.Row>
+      <div className="container">
+        <div className="row header">
+          <div className="title">BhadaDar</div>
+        </div>
+        <div className="row content">
+          <div className="hero">
+            <div className="selection">
+              <div className="dropdown">
+                <Suggestion />
+              </div>
+              <div className="dropdown">
+                <Suggestion />
+              </div>
+              <div className="button">
+                <button type="button" className="btn-primary">
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="numbers">some counts</div>
+          <div className="maps">Google map</div>
+        </div>
+        <div className="row footer">Footer</div>
       </div>
     );
   }
