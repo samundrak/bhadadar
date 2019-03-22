@@ -8,6 +8,10 @@ class App extends Component {
     this.state = {};
   }
 
+  componentDidMount() {
+    const worker = new Worker('./worker.js');
+  }
+
   render() {
     return (
       <div className="container">
