@@ -3,6 +3,8 @@ import './App.css';
 import Suggestion from './components/Suggestion';
 import BhadaDar from './core/Bhadadar';
 import Lang from './core/Lang';
+import LanguageContext from './contexts/LanguageContext';
+import BhadadarContext from './contexts/BhadadarContext';
 
 class App extends Component {
   constructor(props) {
@@ -27,31 +29,40 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container" key={this.state.rerenderKey}>
-        <div className="row header">
-          <div className="title">{this.lang.app}</div>
-        </div>
-        <div className="row content">
-          <div className="hero">
-            <div className="selection">
-              <div className="dropdown">
-                <Suggestion placeholder={this.lang.placeholderSource} />
+      <LanguageContext.Provider key={this.state.rerenderKey} value={this.lang}>
+        <LanguageContext.Consumer>
+          {lang => (
+            <BhadadarContext.Provider value={{ name: 's' }}>
+              <div className="container">
+                <div className="row header">
+                  <div className="title">{lang.app}</div>
+                </div>
+                {Date.now()}
+                <div className="row content">
+                  <div className="hero">
+                    <div className="selection">
+                      <div className="dropdown">
+                        <Suggestion placeholder={lang.placeholderSource} />
+                      </div>
+                      <div className="dropdown">
+                        <Suggestion placeholder={lang.placeholderDestination} />
+                      </div>
+                      <div className="button">
+                        <button type="button" className="btn-primary">
+                          {lang.search}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="numbers">some counts</div>
+                  <div className="maps">Google map</div>
+                </div>
+                <div className="row footer">Footer</div>
               </div>
-              <div className="dropdown">
-                <Suggestion placeholder={this.lang.placeholderDestination} />
-              </div>
-              <div className="button">
-                <button type="button" className="btn-primary">
-                  {this.lang.search}
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="numbers">some counts</div>
-          <div className="maps">Google map</div>
-        </div>
-        <div className="row footer">Footer</div>
-      </div>
+            </BhadadarContext.Provider>
+          )}
+        </LanguageContext.Consumer>
+      </LanguageContext.Provider>
     );
   }
 }

@@ -23,6 +23,10 @@ class BhadaDar {
     return this.collection[collection].insert(records);
   }
 
+  getPlacesByQuery(query) {
+    return this.db.collection.places.find({ en: /kath/ });
+  }
+
   static getInstance() {
     if (BhadaDar.INSTANCE) {
       return BhadaDar.INSTANCE;

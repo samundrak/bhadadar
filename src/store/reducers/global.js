@@ -2,7 +2,7 @@ import { set } from 'dot-prop-immutable';
 import * as Types from '../types';
 
 const initialState = {
-  language: false,
+  language: 'en',
 };
 
 export default function (state = initialState, action) {
