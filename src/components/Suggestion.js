@@ -1,10 +1,7 @@
 import React from 'react';
 import Dropdown from 'react-select';
 
-const options = [
-  { value: 'one', label: 'One' },
-  { value: 'two', label: 'Two', className: 'myOptionClassName' },
-];
+const options = [];
 const defaultOption = options[0];
 
 class Suggestion extends React.Component {
@@ -24,7 +21,7 @@ class Suggestion extends React.Component {
         options={options}
         onChange={this.onSelect}
         value={defaultOption}
-        placeholder="Select an option"
+        placeholder={this.props.placeholder}
       />
     );
   }

@@ -18,7 +18,8 @@
     "reflexbox": "^3.0.1",
     "semantic-ui-css": "^2.4.0",
     "semantic-ui-react": "^0.82.5",
-    "styled-components": "^4.1.2"
+    "styled-components": "^4.1.2",
+    "zangodb": "^1.0.7"
   },
   "devDependencies": {
     "eslint-config-airbnb": "^17.0.0"
