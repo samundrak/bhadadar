@@ -14,13 +14,13 @@ class App extends Component {
     };
     this.bhadadar = BhadaDar.getInstance();
     this.lang = {};
+    this.places = [];
   }
 
   componentDidMount() {
     (async () => {
       this.lang = await Lang.getInstance().load('en');
-      const places = await BhadaDar.fetchPlaces();
-      await this.bhadadar.createRecords('places', places.data);
+      await this.bhadadar.boot();
       this.setState({
         rerenderKey: Date.now(),
       });
@@ -29,15 +29,14 @@ class App extends Component {
 
   render() {
     return (
-      <LanguageContext.Provider key={this.state.rerenderKey} value={this.lang}>
-        <LanguageContext.Consumer>
-          {lang => (
-            <BhadadarContext.Provider value={{ name: 's' }}>
+      <BhadadarContext.Provider value={this.bhadadar}>
+        <LanguageContext.Provider key={this.state.rerenderKey} value={this.lang}>
+          <LanguageContext.Consumer>
+            {lang => (
               <div className="container">
                 <div className="row header">
                   <div className="title">{lang.app}</div>
                 </div>
-                {Date.now()}
                 <div className="row content">
                   <div className="hero">
                     <div className="selection">
@@ -59,10 +58,10 @@ class App extends Component {
                 </div>
                 <div className="row footer">Footer</div>
               </div>
-            </BhadadarContext.Provider>
-          )}
-        </LanguageContext.Consumer>
-      </LanguageContext.Provider>
+            )}
+          </LanguageContext.Consumer>
+        </LanguageContext.Provider>
+      </BhadadarContext.Provider>
     );
   }
 }

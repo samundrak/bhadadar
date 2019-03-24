@@ -6,19 +6,31 @@ const options = [];
 const defaultOption = options[0];
 
 class Suggestion extends React.Component {
-  constructor(props) {
-    super(props);
+  static contextType = BhadadarContext;
+
+  constructor(props, context) {
+    super(props, context);
     this.state = {
       inputValue: '',
     };
   }
 
   componentDidMount() {
-    console.log(this.context);
+    console.log('mounted');
   }
 
   loadOptions = (query, callback) => {
-    console.log(query, this.props);
+    this.context.getPlacesByQuery(query).then((places) => {
+      callback(
+        places.map(item => ({
+          value: item.en,
+          label: `${item.en.toUpperCase()} (${item.np})`,
+        })),
+      );
+    });
+    // this.context.getPlacesByQuery(query).forEach((doc) => {
+    //   console.log(doc);
+    // });
   };
 
   onInputChange = (newValue) => {
@@ -33,14 +45,11 @@ class Suggestion extends React.Component {
         className="suggestion"
         isClearable
         isSearchable
-        options={options}
         onInputChange={this.onInputChange}
         loadOptions={this.loadOptions}
-        value={defaultOption}
         placeholder={this.props.placeholder}
       />
     );
   }
 }
-Suggestion.contextType = BhadadarContext;
 export default Suggestion;
