@@ -10,6 +10,19 @@ class BhadaDar {
       bhadadar: '++,start,end',
       preferences: 'key',
     });
+    window.db = this.db;
+  }
+
+  async getBhadadar(source, destination) {
+    const oneWay = await this.db.bhadadar.get({ start: source, end: destination });
+    if (oneWay) {
+      return oneWay;
+    }
+    const backWay = await this.db.bhadadar.get({ start: destination, end: source });
+    if (backWay) {
+      return backWay;
+    }
+    throw new Error('No route found.');
   }
 
   async pullRecords(totalItems) {

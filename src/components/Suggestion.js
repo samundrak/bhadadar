@@ -17,6 +17,7 @@ class Suggestion extends React.Component {
       callback(
         places
           .map(item => ({
+            id: item.id,
             value: item.en,
             label: `${item.en.toUpperCase()} (${item.np})`,
           }))

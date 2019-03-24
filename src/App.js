@@ -44,10 +44,18 @@ class App extends Component {
   }
 
   handleSearch = () => {
-    if (!this.props.app.source || !this.props.app.destination) {
+    const { source, destination } = this.props.app;
+    if (!source || !destination) {
       return;
     }
-    console.log(this.props.app);
+    this.bhadadar
+      .getBhadadar(source.id, destination.id)
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   render() {
