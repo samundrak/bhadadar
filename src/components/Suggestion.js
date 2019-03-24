@@ -2,9 +2,6 @@ import React from 'react';
 import AsyncSelect from 'react-select/lib/Async';
 import BhadadarContext from '../contexts/BhadadarContext';
 
-const options = [];
-const defaultOption = options[0];
-
 class Suggestion extends React.Component {
   static contextType = BhadadarContext;
 
@@ -15,22 +12,20 @@ class Suggestion extends React.Component {
     };
   }
 
-  componentDidMount() {
-    console.log('mounted');
-  }
-
   loadOptions = (query, callback) => {
     this.context.getPlacesByQuery(query).then((places) => {
       callback(
-        places.map(item => ({
-          value: item.en,
-          label: `${item.en.toUpperCase()} (${item.np})`,
-        })),
+        places
+          .map(item => ({
+            value: item.en,
+            label: `${item.en.toUpperCase()} (${item.np})`,
+          }))
+          .filter((item) => {
+            if (!this.props.ignore) return true;
+            return this.props.ignore.value !== item.value;
+          }),
       );
     });
-    // this.context.getPlacesByQuery(query).forEach((doc) => {
-    //   console.log(doc);
-    // });
   };
 
   onInputChange = (newValue) => {
@@ -39,9 +34,16 @@ class Suggestion extends React.Component {
     return inputValue;
   };
 
+  handleChange = (value) => {
+    if (this.props.onSelect) {
+      this.props.onSelect(value);
+    }
+  };
+
   render() {
     return (
       <AsyncSelect
+        onChange={this.handleChange}
         className="suggestion"
         isClearable
         isSearchable

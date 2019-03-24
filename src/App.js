@@ -1,3 +1,5 @@
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import React, { Component } from 'react';
 import './App.css';
 import Suggestion from './components/Suggestion';
@@ -5,6 +7,7 @@ import BhadaDar from './core/Bhadadar';
 import Lang from './core/Lang';
 import LanguageContext from './contexts/LanguageContext';
 import BhadadarContext from './contexts/BhadadarContext';
+import * as appActions from './store/actions/appActions';
 
 class App extends Component {
   constructor(props) {
@@ -27,6 +30,17 @@ class App extends Component {
     })();
   }
 
+  handleSuggestionSelect(type) {
+    return (place) => {
+      console.log(type);
+      if (type === 'source') {
+        this.props.actions.setSource(place);
+      } else {
+        this.props.actions.setDestination(place);
+      }
+    };
+  }
+
   render() {
     return (
       <BhadadarContext.Provider value={this.bhadadar}>
@@ -41,10 +55,18 @@ class App extends Component {
                   <div className="hero">
                     <div className="selection">
                       <div className="dropdown">
-                        <Suggestion placeholder={lang.placeholderSource} />
+                        <Suggestion
+                          ignore={this.props.app.destination}
+                          onSelect={this.handleSuggestionSelect('source')}
+                          placeholder={lang.placeholderSource}
+                        />
                       </div>
                       <div className="dropdown">
-                        <Suggestion placeholder={lang.placeholderDestination} />
+                        <Suggestion
+                          ignore={this.props.app.source}
+                          onSelect={this.handleSuggestionSelect('destination')}
+                          placeholder={lang.placeholderDestination}
+                        />
                       </div>
                       <div className="button">
                         <button type="button" className="btn-primary">
@@ -66,4 +88,20 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  loading: state.loading,
+  global: state.global,
+  app: state.app,
+});
+const mapActionsToProps = dispatch => ({
+  actions: bindActionCreators(
+    {
+      ...appActions,
+    },
+    dispatch,
+  ),
+});
+export default connect(
+  mapStateToProps,
+  mapActionsToProps,
+)(App);
