@@ -8,6 +8,7 @@ import Lang from './core/Lang';
 import LanguageContext from './contexts/LanguageContext';
 import BhadadarContext from './contexts/BhadadarContext';
 import * as appActions from './store/actions/appActions';
+import * as loadingActions from './store/actions/loadingActions';
 
 class App extends Component {
   constructor(props) {
@@ -22,8 +23,10 @@ class App extends Component {
 
   componentDidMount() {
     (async () => {
+      this.props.actions.rootLoadingStart();
       this.lang = await Lang.getInstance().load('en');
       await this.bhadadar.boot();
+      this.props.actions.rootLoadingStop();
       this.setState({
         rerenderKey: Date.now(),
       });
@@ -32,7 +35,6 @@ class App extends Component {
 
   handleSuggestionSelect(type) {
     return (place) => {
-      console.log(type);
       if (type === 'source') {
         this.props.actions.setSource(place);
       } else {
@@ -41,6 +43,13 @@ class App extends Component {
     };
   }
 
+  handleSearch = () => {
+    if (!this.props.app.source || !this.props.app.destination) {
+      return;
+    }
+    console.log(this.props.app);
+  };
+
   render() {
     return (
       <BhadadarContext.Provider value={this.bhadadar}>
@@ -48,8 +57,15 @@ class App extends Component {
           <LanguageContext.Consumer>
             {lang => (
               <div className="container">
+                {this.props.loading.isRootLoading && <div className="lds-hourglass" />}
                 <div className="row header">
-                  <div className="title">{lang.app}</div>
+                  <a href="/">
+                    <div className="title">
+                      \\
+                      {lang.app}
+                      //
+                    </div>
+                  </a>
                 </div>
                 <div className="row content">
                   <div className="hero">
@@ -69,16 +85,16 @@ class App extends Component {
                         />
                       </div>
                       <div className="button">
-                        <button type="button" className="btn-primary">
+                        <button onClick={this.handleSearch} type="button" className="btn-primary">
                           {lang.search}
                         </button>
                       </div>
                     </div>
                   </div>
                   <div className="numbers">some counts</div>
-                  <div className="maps">Google map</div>
+                  {/* <div className="maps">Google map</div> */}
                 </div>
-                <div className="row footer">Footer</div>
+                {/* <div className="row footer">Footer</div> */}
               </div>
             )}
           </LanguageContext.Consumer>
@@ -97,6 +113,7 @@ const mapActionsToProps = dispatch => ({
   actions: bindActionCreators(
     {
       ...appActions,
+      ...loadingActions,
     },
     dispatch,
   ),

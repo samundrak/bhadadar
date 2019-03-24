@@ -3,3 +3,4 @@ export const ROOT_LOADING_STOP = 'ROOT_LOADING_STOP';
 export const SET_LANGUAGE = 'SET_LANGUAGE';
 export const SET_SOURCE = 'SET_SOURCE';
 export const SET_DESTINATION = 'SET_DESTINATION';
+export const SET_RESULT = 'SET_RESULT';

@@ -1,21 +1,32 @@
 import Dexie from 'dexie';
 import * as API from '../api';
+import { synchronousPromiseResolver } from '../helpers';
 
 class BhadaDar {
   constructor() {
     this.db = new Dexie(BhadaDar.DB);
     this.db.version(2).stores({
       places: '++id,en',
-      // records: '',
+      bhadadar: '++,start,end',
       preferences: 'key',
     });
-    window.db = this.db;
-    // this.collection = {
-    //   places: this.db.collection('places'),
-    //   records: this.db.collection('records'),
-    //   preferences: this.db.collection('preferences'),
-    // };
-    // window.collection = this.collection;
+  }
+
+  async pullRecords(totalItems) {
+    const promises = Array(totalItems).fill(true);
+    promises.forEach((item, index) => {
+      promises[index] = () => API.getRecords(index);
+    });
+
+    return await synchronousPromiseResolver(promises);
+  }
+
+  async createBhadadar(recordsCollections) {
+    const records = [];
+    recordsCollections.forEach((record) => {
+      records.push(...record.data);
+    });
+    this.createDocuments(BhadaDar.COLLECTION_BHADADAR, records);
   }
 
   async boot() {
@@ -29,9 +40,12 @@ class BhadaDar {
       }
       if (metaPrefernce.lastUpdatedData !== meta.lastUpdatedData) {
         const places = await BhadaDar.fetchPlaces();
-        await this.clearDocuments('places');
-        await this.createDocuments('places', places.data);
+        await this.clearDocuments(BhadaDar.COLLECTION_PLACES);
+        await this.createDocuments(BhadaDar.COLLECTION_PLACES, places.data);
         await this.setPreferences('meta', meta);
+        const records = await this.pullRecords(places.totalItems);
+        await this.clearDocuments(BhadaDar.COLLECTION_BHADADAR);
+        await this.createBhadadar(records);
       }
       return {};
     } catch (error) {
@@ -57,10 +71,14 @@ class BhadaDar {
   }
 
   clearDocuments(collection) {
+    if (!this.db[collection]) {
+      return;
+    }
     return this.db[collection].clear();
   }
 
   createDocuments(collection, records) {
+    if (!this.db[collection]) return;
     return this.db[collection].bulkAdd(records);
   }
 
@@ -77,5 +95,8 @@ class BhadaDar {
   }
 }
 BhadaDar.DB = 'bhadadar';
-BhadaDar.COLLECTION_PLACES = null;
+BhadaDar.COLLECTION_PLACES = 'places';
+BhadaDar.COLLECTION_PREFERENCES = 'preferences';
+BhadaDar.COLLECTION_BHADADAR = 'bhadadar';
+
 export default BhadaDar;

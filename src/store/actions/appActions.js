@@ -12,3 +12,9 @@ export function setDestination(destination) {
     destination,
   };
 }
+export function setResult(result) {
+  return {
+    type: Types.SET_RESULT,
+    result,
+  };
+}
