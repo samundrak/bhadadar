@@ -56,6 +56,9 @@ html body {
   flex-wrap: wrap;
 }
 
+.suggestion {
+  z-index: 2;
+}
 .suggestion > div {
   border-radius: 0px;
   padding: 12px 0;

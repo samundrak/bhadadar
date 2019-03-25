@@ -1,6 +1,9 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import React, { Component } from 'react';
+import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/slide.css';
+import Alert from 'react-s-alert';
 import './App.css';
 import Suggestion from './components/Suggestion';
 import Result from './components/Result';
@@ -53,9 +56,11 @@ class App extends Component {
       .getBhadadar(source.id, destination.id)
       .then((data) => {
         console.log(data);
+        this.props.actions.setResult(data);
       })
       .catch((err) => {
-        console.log(err);
+        Alert.error(err.message);
+        this.props.actions.setResult(null);
       });
   };
 
@@ -66,6 +71,7 @@ class App extends Component {
           <LanguageContext.Consumer>
             {lang => (
               <div className="container">
+                <Alert stack={{limit: 3}} />
                 {this.props.loading.isRootLoading && <div className="lds-hourglass" />}
                 <div className="row header">
                   <a href="/">
@@ -77,6 +83,7 @@ class App extends Component {
                   </a>
                 </div>
                 <div className="row content">
+
                   <div className="hero">
                     <div className="selection">
                       <div className="dropdown">
@@ -101,7 +108,7 @@ class App extends Component {
                     </div>
                   </div>
                   <div className="numbers">
-                    <Result />
+                    <Result value={this.props.app.result} />
                   </div>
                   {/* <div className="maps">Google map</div> */}
                 </div>

@@ -30,7 +30,7 @@ const Counter = styled.div`
   display: flex;
   flex-direction: row;
 `;
-const Number = styled.div`
+const Count = styled.div`
   font-size: 10vw;
   flex: 1;
 `;
@@ -43,15 +43,17 @@ const Label = styled.div`
 `;
 class Result extends React.Component {
   render() {
+    const { value } = this.props;
+    console.log(value);
     return (
       <Container>
         <Item>
           <Counter>
-            <CountUp start={0} end={10} delay={0}>
+            <CountUp start={0} end={Number(value.distanceInKm.en)} delay={0}>
               {({ countUpRef }) => (
-                <Number>
+                <Count>
                   <span ref={countUpRef} />
-                </Number>
+                </Count>
               )}
             </CountUp>
             <Unit>KM</Unit>
@@ -60,11 +62,11 @@ class Result extends React.Component {
         </Item>
         <HighlightedItem>
           <Counter>
-            <CountUp start={0} end={10} delay={0}>
+            <CountUp start={0} end={Number(value.fair.en)} delay={0}>
               {({ countUpRef }) => (
-                <Number>
+                <Count>
                   <span ref={countUpRef} />
-                </Number>
+                </Count>
               )}
             </CountUp>
             <Unit>Rupees</Unit>
@@ -74,11 +76,11 @@ class Result extends React.Component {
         </HighlightedItem>
         <Item>
           <Counter>
-            <CountUp start={0} end={10} delay={0}>
+            <CountUp start={0} end={0} delay={0}>
               {({ countUpRef }) => (
-                <Number>
+                <Count>
                   <span ref={countUpRef} />
-                </Number>
+                </Count>
               )}
             </CountUp>
             <Unit>Hours</Unit>
