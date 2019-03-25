@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import React, { Component } from 'react';
 import './App.css';
 import Suggestion from './components/Suggestion';
+import Result from './components/Result';
 import BhadaDar from './core/Bhadadar';
 import Lang from './core/Lang';
 import LanguageContext from './contexts/LanguageContext';
@@ -99,7 +100,9 @@ class App extends Component {
                       </div>
                     </div>
                   </div>
-                  <div className="numbers">some counts</div>
+                  <div className="numbers">
+                    <Result />
+                  </div>
                   {/* <div className="maps">Google map</div> */}
                 </div>
                 {/* <div className="row footer">Footer</div> */}

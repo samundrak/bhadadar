@@ -32,7 +32,7 @@ html body {
   flex-direction: column;
 }
 .content > .numbers {
-  flex: 1;
+  flex: 2;
 }
 .content > .maps {
   flex: 2;
