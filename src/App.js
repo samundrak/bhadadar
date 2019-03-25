@@ -55,7 +55,6 @@ class App extends Component {
     this.bhadadar
       .getBhadadar(source.id, destination.id)
       .then((data) => {
-        console.log(data);
         this.props.actions.setResult(data);
       })
       .catch((err) => {

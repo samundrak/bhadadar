@@ -32,7 +32,8 @@ html body {
   flex-direction: column;
 }
 .content > .numbers {
-  flex: 2;
+  flex: 1;
+  background: #f4f4f8;
 }
 .content > .maps {
   flex: 2;
@@ -40,7 +41,7 @@ html body {
 
 .content > .hero {
   background: url(./nepal.jpeg);
-  flex: 2;
+  flex: 1;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -110,6 +111,13 @@ html body {
 
   .btn-primary {
     border-radius: 5px;
+  }
+  .result-container {
+    height: auto !important;
+    box-shadow: inset 0px 3px 0px 0px #888888;
+  }
+  .result-container > .result-item {
+    padding: 5%;
   }
 }
 

@@ -45,8 +45,8 @@ class Result extends React.Component {
   render() {
     const { value } = this.props;
     return (
-      <Container>
-        <Item>
+      <Container className="result-container">
+        <Item className="result-item">
           <Counter>
             <CountUp start={0} end={Number(value.distanceInKm.en)} delay={0}>
               {({ countUpRef }) => (
@@ -59,7 +59,7 @@ class Result extends React.Component {
           </Counter>
           <Label>Distance</Label>
         </Item>
-        <HighlightedItem>
+        <HighlightedItem className="result-item">
           <Counter>
             <CountUp start={0} end={Number(value.fair.en)} delay={0}>
               {({ countUpRef }) => (
@@ -73,7 +73,7 @@ class Result extends React.Component {
 
           <Label>Cost</Label>
         </HighlightedItem>
-        <Item>
+        <Item className="result-item">
           <Counter>
             <CountUp start={0} end={0} delay={0}>
               {({ countUpRef }) => (
