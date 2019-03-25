@@ -44,7 +44,6 @@ const Label = styled.div`
 class Result extends React.Component {
   render() {
     const { value } = this.props;
-    console.log(value);
     return (
       <Container>
         <Item>
