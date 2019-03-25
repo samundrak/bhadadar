@@ -10,25 +10,23 @@ const Container = styled.div`
 const Item = styled.div`
   flex: 1;
   display: flex;
-  align-items: center;
-  justify-content: center;
   background: #f4f4f8;
   flex-direction: column;
 `;
 const HighlightedItem = styled.div`
-  flex-direction: column;
   flex: 2;
   display: flex;
-  align-items: center;
-  justify-content: center;
   background: #f4f4f8;
   box-shadow: 1px 4px 4px 0px #888888;
   z-index: 1;
+  flex-direction: column;
 `;
 
 const Counter = styled.div`
   display: flex;
-  flex-direction: row;
+  align-self: center;
+  justify-content: center;
+  flex-direction: column;
 `;
 const Count = styled.div`
   font-size: 10vw;
@@ -40,6 +38,11 @@ const Unit = styled.div`
 `;
 const Label = styled.div`
   font-size: 3vw;
+  background: #ff4545;
+  color: white;
+  text-align: center;
+  box-shadow: 1px 4px 4px 0px #888888;
+
 `;
 class Result extends React.Component {
   render() {
@@ -47,6 +50,10 @@ class Result extends React.Component {
     return (
       <Container className="result-container">
         <Item className="result-item">
+          <Label>
+            <img src="/images/distance.png" height="40px" width="40px" />
+            Distance
+          </Label>
           <Counter>
             <CountUp start={0} end={Number(value.distanceInKm.en)} delay={0}>
               {({ countUpRef }) => (
@@ -57,9 +64,12 @@ class Result extends React.Component {
             </CountUp>
             <Unit>KM</Unit>
           </Counter>
-          <Label>Distance</Label>
         </Item>
         <HighlightedItem className="result-item">
+          <Label>
+            <img src="/images/cost.png" height="40px" width="40px" />
+            Cost
+          </Label>
           <Counter>
             <CountUp start={0} end={Number(value.fair.en)} delay={0}>
               {({ countUpRef }) => (
@@ -70,10 +80,12 @@ class Result extends React.Component {
             </CountUp>
             <Unit>Rupees</Unit>
           </Counter>
-
-          <Label>Cost</Label>
         </HighlightedItem>
         <Item className="result-item">
+          <Label>
+            <img src="/images/time.png" height="40px" width="40px" />
+            Time
+          </Label>
           <Counter>
             <CountUp start={0} end={0} delay={0}>
               {({ countUpRef }) => (
@@ -84,8 +96,6 @@ class Result extends React.Component {
             </CountUp>
             <Unit>Hours</Unit>
           </Counter>
-
-          <Label>Travel Time</Label>
         </Item>
       </Container>
     );

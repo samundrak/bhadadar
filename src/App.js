@@ -44,6 +44,11 @@ class App extends Component {
       } else {
         this.props.actions.setDestination(place);
       }
+      if(type === 'destination' || this.props.app.source && this.props.app.destination) {
+        if(this.searchEl) {
+          this.searchEl.focus()
+        }
+      }
     };
   }
 
@@ -70,7 +75,7 @@ class App extends Component {
           <LanguageContext.Consumer>
             {lang => (
               <div className="container">
-                <Alert stack={{limit: 3}} />
+                <Alert stack={{ limit: 3 }} />
                 {this.props.loading.isRootLoading && <div className="lds-hourglass" />}
                 <div className="row header">
                   <a href="/">
@@ -82,7 +87,6 @@ class App extends Component {
                   </a>
                 </div>
                 <div className="row content">
-
                   <div className="hero">
                     <div className="selection">
                       <div className="dropdown">
@@ -100,7 +104,12 @@ class App extends Component {
                         />
                       </div>
                       <div className="button">
-                        <button onClick={this.handleSearch} type="button" className="btn-primary">
+                        <button
+                          ref={el => (this.searchEl = el)}
+                          onClick={this.handleSearch}
+                          type="button"
+                          className="btn-primary"
+                        >
                           {lang.search}
                         </button>
                       </div>
