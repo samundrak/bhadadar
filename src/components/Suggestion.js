@@ -2,6 +2,14 @@ import React from 'react';
 import AsyncSelect from 'react-select/lib/Async';
 import BhadadarContext from '../contexts/BhadadarContext';
 
+const selectStyles = {
+  container: (base, state) => ({
+    ...base,
+    opacity: state.isDisabled ? '.5' : '1',
+    backgroundColor: 'transparent',
+    zIndex: '99',
+  }),
+};
 class Suggestion extends React.Component {
   static contextType = BhadadarContext;
 

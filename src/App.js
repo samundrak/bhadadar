@@ -44,9 +44,9 @@ class App extends Component {
       } else {
         this.props.actions.setDestination(place);
       }
-      if(type === 'destination' || this.props.app.source && this.props.app.destination) {
-        if(this.searchEl) {
-          this.searchEl.focus()
+      if (type === 'destination' || (this.props.app.source && this.props.app.destination)) {
+        if (this.searchEl) {
+          this.searchEl.focus();
         }
       }
     };
@@ -89,14 +89,14 @@ class App extends Component {
                 <div className="row content">
                   <div className="hero">
                     <div className="selection">
-                      <div className="dropdown">
+                      <div className="dropdown" style={{ zIndex: 99 }}>
                         <Suggestion
                           ignore={this.props.app.destination}
                           onSelect={this.handleSuggestionSelect('source')}
                           placeholder={lang.placeholderSource}
                         />
                       </div>
-                      <div className="dropdown">
+                      <div className="dropdown" style={{ zIndex: 98 }}>
                         <Suggestion
                           ignore={this.props.app.source}
                           onSelect={this.handleSuggestionSelect('destination')}

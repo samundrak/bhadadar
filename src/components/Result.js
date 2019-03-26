@@ -1,23 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
 import CountUp from 'react-countup';
+import SpeedDistance from './SpeedDistance';
 
 const Container = styled.div`
   display: flex;
-  flex-direction: row;
   height: 100%;
+  flex-direction: row;
 `;
 const Item = styled.div`
   flex: 1;
   display: flex;
-  background: #f4f4f8;
+  height: 100%;
+  background: white;
   flex-direction: column;
 `;
 const HighlightedItem = styled.div`
-  flex: 2;
+  flex: 1;
   display: flex;
   background: #f4f4f8;
-  box-shadow: 1px 4px 4px 0px #888888;
   z-index: 1;
   flex-direction: column;
 `;
@@ -42,7 +43,6 @@ const Label = styled.div`
   color: white;
   text-align: center;
   box-shadow: 1px 4px 4px 0px #888888;
-
 `;
 class Result extends React.Component {
   render() {
@@ -50,11 +50,11 @@ class Result extends React.Component {
     return (
       <Container className="result-container">
         <Item className="result-item">
-          <Label>
+          <Label className="result-item-label">
             <img src="/images/distance.png" height="40px" width="40px" />
             Distance
           </Label>
-          <Counter>
+          <Counter className="result-item-counter">
             <CountUp start={0} end={Number(value.distanceInKm.en)} delay={0}>
               {({ countUpRef }) => (
                 <Count>
@@ -66,11 +66,11 @@ class Result extends React.Component {
           </Counter>
         </Item>
         <HighlightedItem className="result-item">
-          <Label>
+          <Label className="result-item-label">
             <img src="/images/cost.png" height="40px" width="40px" />
             Cost
           </Label>
-          <Counter>
+          <Counter className="result-item-counter">
             <CountUp start={0} end={Number(value.fair.en)} delay={0}>
               {({ countUpRef }) => (
                 <Count>
@@ -81,20 +81,13 @@ class Result extends React.Component {
             <Unit>Rupees</Unit>
           </Counter>
         </HighlightedItem>
-        <Item className="result-item">
+        <Item>
           <Label>
             <img src="/images/time.png" height="40px" width="40px" />
             Time
           </Label>
-          <Counter>
-            <CountUp start={0} end={0} delay={0}>
-              {({ countUpRef }) => (
-                <Count>
-                  <span ref={countUpRef} />
-                </Count>
-              )}
-            </CountUp>
-            <Unit>Hours</Unit>
+          <Counter style={{ width: '100%' }}>
+            <SpeedDistance km={Number(value.distanceInKm.en)} />
           </Counter>
         </Item>
       </Container>

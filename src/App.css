@@ -115,8 +115,23 @@ html body {
   .result-container {
     height: auto !important;
     box-shadow: inset 0px 3px 0px 0px #888888;
+    flex-flow: column !important;
   }
   .result-container > .result-item {
+    flex-direction: row;
+  }
+  .result-item > .result-item-label {
+    width: 30%;
+    width: 30%;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #daaaaa;
+    box-shadow: 1px 0px 0px 0px #888888 !important;
+    box-shadow: 1px 0px 0px 0px #888888 !important;
+  }
+  .result-item > .result-item-counter {
+    width: 70%;
+    text-align: center;
   }
 }
 
