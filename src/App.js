@@ -15,6 +15,7 @@ import * as appActions from './store/actions/appActions';
 import * as loadingActions from './store/actions/loadingActions';
 import * as globalActions from './store/actions/globalActions';
 import LanguagePicker from './components/LanguagePicker';
+import { randomNepalImage } from './helpers';
 
 class App extends Component {
   constructor(props) {
@@ -35,9 +36,14 @@ class App extends Component {
       this.lang = await Lang.getInstance().load(lang || 'en');
       this.props.actions.setLanguage(lang);
       this.props.actions.rootLoadingStop();
-      this.setState({
-        rerenderKey: Date.now(),
-      });
+      this.setState(
+        {
+          rerenderKey: Date.now(),
+        },
+        () => {
+          this.randomImage();
+        },
+      );
     })();
   }
 
@@ -84,6 +90,17 @@ class App extends Component {
         });
       });
   };
+
+  randomImage() {
+    const heroEl = document.querySelector('.hero');
+    if (!heroEl) return;
+    const nextImages = `images/${randomNepalImage(1, 6)}`;
+    heroEl.style.cssText = `
+      background: url(${nextImages});
+      background-size: cover;
+      background-position: center;
+    `;
+  }
 
   render() {
     return (
