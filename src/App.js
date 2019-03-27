@@ -13,6 +13,8 @@ import LanguageContext from './contexts/LanguageContext';
 import BhadadarContext from './contexts/BhadadarContext';
 import * as appActions from './store/actions/appActions';
 import * as loadingActions from './store/actions/loadingActions';
+import * as globalActions from './store/actions/globalActions';
+import LanguagePicker from './components/LanguagePicker';
 
 class App extends Component {
   constructor(props) {
@@ -28,8 +30,10 @@ class App extends Component {
   componentDidMount() {
     (async () => {
       this.props.actions.rootLoadingStart();
-      this.lang = await Lang.getInstance().load('en');
       await this.bhadadar.boot();
+      const lang = await this.bhadadar.getPreferences('lang');
+      this.lang = await Lang.getInstance().load(lang || 'en');
+      this.props.actions.setLanguage(lang);
       this.props.actions.rootLoadingStop();
       this.setState({
         rerenderKey: Date.now(),
@@ -68,6 +72,19 @@ class App extends Component {
       });
   };
 
+  handleOnLangChange = (lang) => {
+    this.props.actions.setLanguage(lang.value);
+    this.bhadadar.setPreferences('lang', lang.value);
+    Lang.getInstance()
+      .load(lang.value || 'en')
+      .then((lang) => {
+        this.lang = lang;
+        this.setState({
+          rerenderKey: Date.now(),
+        });
+      });
+  };
+
   render() {
     return (
       <BhadadarContext.Provider value={this.bhadadar}>
@@ -78,13 +95,19 @@ class App extends Component {
                 <Alert stack={{ limit: 3 }} />
                 {this.props.loading.isRootLoading && <div className="lds-hourglass" />}
                 <div className="row header">
-                    <div className="title">
+                  <div className="title">
                     <a href="/">
                       \\
                       {lang.app}
                       //
-                      </a>
-                    </div>
+                    </a>
+                  </div>
+                  <div className="language-option">
+                    <LanguagePicker
+                      lang={this.props.global.language}
+                      onChange={this.handleOnLangChange}
+                    />
+                  </div>
                 </div>
                 <div className="row content">
                   <div className="hero">
@@ -140,6 +163,7 @@ const mapActionsToProps = dispatch => ({
     {
       ...appActions,
       ...loadingActions,
+      ...globalActions,
     },
     dispatch,
   ),

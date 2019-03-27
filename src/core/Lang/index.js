@@ -1,10 +1,11 @@
 const enLang = require('./en');
+const npLang = require('./np');
 
 class Language {
   constructor() {
     this._type = 'en';
     this._lang = new Map();
-    this._here = ['en'];
+    this._here = ['en', 'np'];
   }
 
   load(type = null) {
@@ -12,6 +13,9 @@ class Language {
     let lang = null;
     if (this._here.includes(this._type)) {
       switch (this._type) {
+        case 'np':
+          lang = npLang;
+          break;
         default:
           lang = enLang;
           break;
@@ -19,7 +23,7 @@ class Language {
       this.setLanguage(lang);
       return Promise.resolve(lang).then(r => r);
     }
-    return Promise.reject(new Error('Unable to load language file'))
+    return Promise.reject(new Error('Unable to load language file'));
   }
 
   setLanguage(lang) {

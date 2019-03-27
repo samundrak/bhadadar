@@ -31,8 +31,7 @@ const SpeedDistance = ({ km }) => (
             <Item index={index} key={item}>
               <SpanSpace>{prettyMS(distanceCoveredTime(km, item), { verbose: true })}</SpanSpace>
               {' '}
-if
-              {lang.speedIs}
+{lang.speedIs}
               <SpanSpace style={{ padding: '1%' }}>{item}</SpanSpace>
               {lang.kmph}
             </Item>

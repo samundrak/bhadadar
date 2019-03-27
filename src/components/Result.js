@@ -40,61 +40,69 @@ const Unit = styled.div`
 `;
 const Label = styled.div`
   font-size: 3vw;
-  background: #F96D71;
+  background: #f96d71;
   color: white;
   text-align: center;
   box-shadow: 1px 4px 4px 0px #888888;
 `;
-const Result = ({ value }) => {
-    return (
-      <LanguageContext.Consumer>
-        {lang => (
-          <Container className="result-container">
-            <Item className="result-item">
-              <Label className="result-item-label">
-                <img src="/images/distance.png" height="40px" width="40px" />
-                {lang.distance}
-              </Label>
-              <Counter className="result-item-counter">
-                <CountUp start={0} end={Number(value.distanceInKm.en)} delay={0}>
-                  {({ countUpRef }) => (
-                    <Count>
-                      <span ref={countUpRef} />
-                    </Count>
-                  )}
-                </CountUp>
-                <Unit>{lang.km}</Unit>
-              </Counter>
-            </Item>
-            <HighlightedItem className="result-item">
-              <Label className="result-item-label">
-                <img src="/images/cost.png" height="40px" width="40px" />
-                {lang.cost}
-              </Label>
-              <Counter className="result-item-counter">
-                <CountUp start={0} end={Number(value.fair.en)} delay={0}>
-                  {({ countUpRef }) => (
-                    <Count>
-                      <span ref={countUpRef} />
-                    </Count>
-                  )}
-                </CountUp>
-                <Unit>{lang.rupees}</Unit>
-              </Counter>
-            </HighlightedItem>
-            <Item>
-              <Label>
-                <img src="/images/time.png" height="40px" width="40px" />
-                {lang.time}
-              </Label>
-              <Counter style={{ width: '100%' }}>
-                <SpeedDistance km={Number(value.distanceInKm.en)} />
-              </Counter>
-            </Item>
-          </Container>
-        )}
-      </LanguageContext.Consumer>
-    );
-}
+const Result = ({ value }) => (
+  <LanguageContext.Consumer>
+    {lang => (
+      <Container className="result-container">
+        <Item className="result-item">
+          <Label className="result-item-label">
+            <img src="/images/distance.png" height="40px" width="40px" />
+            {lang.distance}
+          </Label>
+          <Counter className="result-item-counter">
+            <CountUp start={0} end={Number(value.distanceInKm.en)} delay={0}>
+              {({ countUpRef }) => (
+                <Count>
+                  <span ref={countUpRef} />
+                </Count>
+              )}
+            </CountUp>
+            <Unit>{lang.km}</Unit>
+          </Counter>
+        </Item>
+        <HighlightedItem className="result-item">
+          <Label className="result-item-label">
+            <img src="/images/cost.png" height="40px" width="40px" />
+            {lang.cost}
+          </Label>
+          <Counter className="result-item-counter">
+            <CountUp start={0} end={Number(value.fair.en)} delay={0}>
+              {({ countUpRef }) => (
+                <Count>
+                  <span ref={countUpRef} />
+                </Count>
+              )}
+            </CountUp>
+            <Unit>
+              {lang.rupees}
+              <br />
+              <sub
+                style={{
+                  fontSize: '0.5em',
+                }}
+              >
+                {lang.priceUpDown}
+              </sub>
+            </Unit>
+          </Counter>
+        </HighlightedItem>
+        <Item>
+          <Label>
+            <img src="/images/time.png" height="40px" width="40px" />
+            {lang.time}
+          </Label>
+          <Counter style={{ width: '100%' }}>
+            <SpeedDistance km={Number(value.distanceInKm.en)} />
+          </Counter>
+        </Item>
+      </Container>
+    )}
+  </LanguageContext.Consumer>
+);
 
 export default Result;

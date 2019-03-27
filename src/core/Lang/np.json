@@ -1,0 +1,15 @@
+{
+  "app": "भाडादर",
+  "placeholderSource": "कहाँ देखि",
+  "placeholderDestination": "कहाँ सम्म",
+  "search": "खोज्नुहोस",
+  "cost": "खर्च",
+  "distance": "दुरी",
+  "km": "किलोमिटर",
+  "rupees": "रुपिया",
+  "time": "समय",
+  "speedIs": "येदि गति",
+  "kmph": "किलोमिटर परति  घण्टा",
+  "noTravelDetails": "यो डाटा  हेर्न  गन्तब्य चयन गर्नुहोस",
+  "priceUpDown": "सवारी अनुसारले पैसामा थपघट हुनसक्छ"
+}
