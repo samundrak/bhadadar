@@ -1,1 +1,152 @@
-[{"start":"ux1QKiMMYZv","middle":[],"end":"wP0RKXQO3Ym","distanceInKm":{"np":"६१","en":"61"},"fair":{"np":"१७४","en":"174"},"oldFair":"191"},{"start":"CRMWe8Pdzkz","middle":["तानसेन"],"end":"UJBU9fKclrZ","distanceInKm":{"np":"२५१","en":"251"},"fair":{"np":"४५०","en":"450"},"oldFair":"495"},{"start":"UXPS1dCbV","middle":[],"end":"UlPVLKH7rk2","distanceInKm":{"np":"९३","en":"93"},"fair":{"np":"१६७","en":"167"},"oldFair":"184"},{"start":"UXPS1dCbV","middle":[],"end":"jSExMiEPup","distanceInKm":{"np":"२६८","en":"268"},"fair":{"np":"४५४","en":"454"},"oldFair":"499"},{"start":"UXPS1dCbV","middle":[],"end":"Ol4h9wbxZM","distanceInKm":{"np":"१६९","en":"169"},"fair":{"np":"३०४","en":"304"},"oldFair":"334"},{"start":"UXPS1dCbV","middle":[],"end":"U2srjOqecJ","distanceInKm":{"np":"६७४","en":"674"},"fair":{"np":"११४४","en":"1144"},"oldFair":"1258"},{"start":"UXPS1dCbV","middle":[],"end":"tBjHGbhbHR","distanceInKm":{"np":"३६४","en":"364"},"fair":{"np":"६१९","en":"619"},"oldFair":"681"},{"start":"UXPS1dCbV","middle":[],"end":"RW2QvU8hAH","distanceInKm":{"np":"६७","en":"67"},"fair":{"np":"१२१","en":"121"},"oldFair":"133"},{"start":"UXPS1dCbV","middle":[],"end":"qxmMe1G1bg","distanceInKm":{"np":"२८१","en":"281"},"fair":{"np":"४७८","en":"478"},"oldFair":"526"},{"start":"UXPS1dCbV","middle":[],"end":"_iXlVZisiW","distanceInKm":{"np":"२९७","en":"297"},"fair":{"np":"५०५","en":"505"},"oldFair":"556"},{"start":"UXPS1dCbV","middle":[],"end":"xREuM4zEUq","distanceInKm":{"np":"१११","en":"111"},"fair":{"np":"२०१","en":"201"},"oldFair":"221"},{"start":"UXPS1dCbV","middle":[],"end":"iw9mxLb8M9","distanceInKm":{"np":"४६४","en":"464"},"fair":{"np":"७८८","en":"788"},"oldFair":"867"},{"start":"UXPS1dCbV","middle":[],"end":"rG1-1rvzIq","distanceInKm":{"np":"५६५","en":"565"},"fair":{"np":"९८६","en":"986"},"oldFair":"1085"},{"start":"UXPS1dCbV","middle":[],"end":"cGeXpcclRj","distanceInKm":{"np":"११६","en":"116"},"fair":{"np":"२०९","en":"209"},"oldFair":"230"},{"start":"UXPS1dCbV","middle":["बिताामोड"],"distanceInKm":{"np":"३५","en":"35"},"fair":{"np":"६२","en":"62"},"oldFair":"68"},{"start":"UXPS1dCbV","middle":["िगिानपुर"],"end":"eTmTS-9lSV","distanceInKm":{"np":"२१५","en":"215"},"fair":{"np":"३८९","en":"389"},"oldFair":"428"},{"start":"UXPS1dCbV","middle":["िद्रपुर"],"end":"DsSJCz-pwc","distanceInKm":{"np":"२२०","en":"220"},"fair":{"np":"३९५","en":"395"},"oldFair":"435"},{"start":"UXPS1dCbV","middle":[],"distanceInKm":{"np":"६०८","en":"608"},"fair":{"np":"१०३२","en":"1032"},"oldFair":"1135"},{"start":"UXPS1dCbV","middle":[],"end":"9Q0E2o68hZ","distanceInKm":{"np":"३१९","en":"319"},"fair":{"np":"५४०","en":"540"},"oldFair":"594"}]
+[
+  {
+    "start": "ux1QKiMMYZv",
+    "middle": [],
+    "end": "wP0RKXQO3Ym",
+    "distanceInKm": { "np": "६१", "en": "61" },
+    "fair": { "np": "१७४", "en": "174" },
+    "oldFair": "191"
+  },
+  {
+    "start": "CRMWe8Pdzkz",
+    "middle": ["तानसेन"],
+    "end": "UJBU9fKclrZ",
+    "distanceInKm": { "np": "२५१", "en": "251" },
+    "fair": { "np": "४५०", "en": "450" },
+    "oldFair": "495"
+  },
+  {
+    "start": "UXPS1dCbV",
+    "middle": [],
+    "end": "UlPVLKH7rk2",
+    "distanceInKm": { "np": "९३", "en": "93" },
+    "fair": { "np": "१६७", "en": "167" },
+    "oldFair": "184"
+  },
+  {
+    "start": "UXPS1dCbV",
+    "middle": [],
+    "end": "jSExMiEPup",
+    "distanceInKm": { "np": "२६८", "en": "268" },
+    "fair": { "np": "४५४", "en": "454" },
+    "oldFair": "499"
+  },
+  {
+    "start": "UXPS1dCbV",
+    "middle": [],
+    "end": "Ol4h9wbxZM",
+    "distanceInKm": { "np": "१६९", "en": "169" },
+    "fair": { "np": "३०४", "en": "304" },
+    "oldFair": "334"
+  },
+  {
+    "start": "UXPS1dCbV",
+    "middle": [],
+    "end": "U2srjOqecJ",
+    "distanceInKm": { "np": "६७४", "en": "674" },
+    "fair": { "np": "११४४", "en": "1144" },
+    "oldFair": "1258"
+  },
+  {
+    "start": "UXPS1dCbV",
+    "middle": [],
+    "end": "tBjHGbhbHR",
+    "distanceInKm": { "np": "३६४", "en": "364" },
+    "fair": { "np": "६१९", "en": "619" },
+    "oldFair": "681"
+  },
+  {
+    "start": "UXPS1dCbV",
+    "middle": [],
+    "end": "RW2QvU8hAH",
+    "distanceInKm": { "np": "६७", "en": "67" },
+    "fair": { "np": "१२१", "en": "121" },
+    "oldFair": "133"
+  },
+  {
+    "start": "UXPS1dCbV",
+    "middle": [],
+    "end": "qxmMe1G1bg",
+    "distanceInKm": { "np": "२८१", "en": "281" },
+    "fair": { "np": "४७८", "en": "478" },
+    "oldFair": "526"
+  },
+  {
+    "start": "UXPS1dCbV",
+    "middle": [],
+    "end": "_iXlVZisiW",
+    "distanceInKm": { "np": "२९७", "en": "297" },
+    "fair": { "np": "५०५", "en": "505" },
+    "oldFair": "556"
+  },
+  {
+    "start": "UXPS1dCbV",
+    "middle": [],
+    "end": "xREuM4zEUq",
+    "distanceInKm": { "np": "१११", "en": "111" },
+    "fair": { "np": "२०१", "en": "201" },
+    "oldFair": "221"
+  },
+  {
+    "start": "UXPS1dCbV",
+    "middle": [],
+    "end": "iw9mxLb8M9",
+    "distanceInKm": { "np": "४६४", "en": "464" },
+    "fair": { "np": "७८८", "en": "788" },
+    "oldFair": "867"
+  },
+  {
+    "start": "UXPS1dCbV",
+    "middle": [],
+    "end": "rG1-1rvzIq",
+    "distanceInKm": { "np": "५६५", "en": "565" },
+    "fair": { "np": "९८६", "en": "986" },
+    "oldFair": "1085"
+  },
+  {
+    "start": "UXPS1dCbV",
+    "middle": [],
+    "end": "cGeXpcclRj",
+    "distanceInKm": { "np": "११६", "en": "116" },
+    "fair": { "np": "२०९", "en": "209" },
+    "oldFair": "230"
+  },
+  {
+    "start": "UXPS1dCbV",
+    "middle": ["बिताामोड"],
+    "distanceInKm": { "np": "३५", "en": "35" },
+    "fair": { "np": "६२", "en": "62" },
+    "oldFair": "68"
+  },
+  {
+    "start": "UXPS1dCbV",
+    "middle": ["िगिानपुर"],
+    "end": "eTmTS-9lSV",
+    "distanceInKm": { "np": "२१५", "en": "215" },
+    "fair": { "np": "३८९", "en": "389" },
+    "oldFair": "428"
+  },
+  {
+    "start": "UXPS1dCbV",
+    "middle": ["िद्रपुर"],
+    "end": "DsSJCz-pwc",
+    "distanceInKm": { "np": "२२०", "en": "220" },
+    "fair": { "np": "३९५", "en": "395" },
+    "oldFair": "435"
+  },
+  {
+    "start": "UXPS1dCbV",
+    "middle": [],
+    "distanceInKm": { "np": "६०८", "en": "608" },
+    "fair": { "np": "१०३२", "en": "1032" },
+    "oldFair": "1135"
+  },
+  {
+    "start": "UXPS1dCbV",
+    "middle": [],
+    "end": "9Q0E2o68hZ",
+    "distanceInKm": { "np": "३१९", "en": "319" },
+    "fair": { "np": "५४०", "en": "540" },
+    "oldFair": "594"
+  }
+]

@@ -139,7 +139,7 @@ class App extends Component {
                     </div>
                   </div>
                   <div className="numbers">
-                    <Result value={this.props.app.result} />
+                    <Result value={this.props.app.result} language={this.props.global.language} />
                   </div>
                   {/* <div className="maps">Google map</div> */}
                 </div>

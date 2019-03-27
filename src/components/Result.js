@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ankah from 'ankah';
 import CountUp from 'react-countup';
 import LanguageContext from '../contexts/LanguageContext';
 import SpeedDistance from './SpeedDistance';
@@ -45,7 +46,7 @@ const Label = styled.div`
   text-align: center;
   box-shadow: 1px 4px 4px 0px #888888;
 `;
-const Result = ({ value }) => (
+const Result = ({ value, language }) => (
   <LanguageContext.Consumer>
     {lang => (
       <Container className="result-container">
@@ -55,13 +56,19 @@ const Result = ({ value }) => (
             {lang.distance}
           </Label>
           <Counter className="result-item-counter">
-            <CountUp start={0} end={Number(value.distanceInKm.en)} delay={0}>
-              {({ countUpRef }) => (
-                <Count>
-                  <span ref={countUpRef} />
-                </Count>
-              )}
-            </CountUp>
+            {language === 'en' ? (
+              <CountUp start={0} end={Number(value.distanceInKm.en)} delay={0}>
+                {({ countUpRef }) => (
+                  <Count>
+                    <span ref={countUpRef} />
+                  </Count>
+                )}
+              </CountUp>
+            ) : (
+              <Count>
+                <span>{value.distanceInKm.np || 0}</span>
+              </Count>
+            )}
             <Unit>{lang.km}</Unit>
           </Counter>
         </Item>
@@ -71,13 +78,19 @@ const Result = ({ value }) => (
             {lang.cost}
           </Label>
           <Counter className="result-item-counter">
-            <CountUp start={0} end={Number(value.fair.en)} delay={0}>
-              {({ countUpRef }) => (
-                <Count>
-                  <span ref={countUpRef} />
-                </Count>
-              )}
-            </CountUp>
+            {language === 'en' ? (
+              <CountUp start={0} end={Number(value.fair.en)} delay={0}>
+                {({ countUpRef }) => (
+                  <Count>
+                    <span ref={countUpRef} />
+                  </Count>
+                )}
+              </CountUp>
+            ) : (
+              <Count>
+                <span>{value.fair.np || 0}</span>
+              </Count>
+            )}
             <Unit>
               {lang.rupees}
               <br />
