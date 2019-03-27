@@ -2,5 +2,13 @@
   "app": "BhadaDar",
   "placeholderSource": "Enter source",
   "placeholderDestination": "Enter Destination",
-  "search": "Search"
+  "search": "Search",
+  "cost": "Cost",
+  "distance": "Distance",
+  "km": "KM",
+  "rupees": "Rupees",
+  "time": "Time",
+  "speedIs": "speed is",
+  "kmph": "KMPH",
+  "noTravelDetails": "Select source and destination to get more details"
 }

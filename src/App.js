@@ -78,13 +78,13 @@ class App extends Component {
                 <Alert stack={{ limit: 3 }} />
                 {this.props.loading.isRootLoading && <div className="lds-hourglass" />}
                 <div className="row header">
-                  <a href="/">
                     <div className="title">
+                    <a href="/">
                       \\
                       {lang.app}
                       //
+                      </a>
                     </div>
-                  </a>
                 </div>
                 <div className="row content">
                   <div className="hero">

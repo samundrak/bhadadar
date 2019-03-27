@@ -8,7 +8,7 @@ html body {
 }
 
 .header {
-  background-color: #ff4545;
+  background-color: #f96d71;
   color: white;
   min-height: 5%;
   display: flex;
@@ -25,6 +25,9 @@ html body {
   padding-left: 1%;
   font-weight: bold;
   font-size: 1.5em;
+}
+.title a {
+  color: white;
 }
 .content {
   flex: 2;
@@ -77,7 +80,7 @@ html body {
   color: white;
   border-style: none;
   cursor: pointer;
-  background-color: #ff4545;
+  background-color: #f96d71;
   color: #fff;
   border-radius: 0px 5px 5px 0px;
   font-weight: 400;
@@ -142,7 +145,7 @@ html body {
   height: 100%;
   z-index: 999;
   width: 100%;
-  background: #d32a2a;
+  background: #f96d71;
   position: absolute;
 }
 .lds-hourglass:after {
