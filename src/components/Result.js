@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import ankah from 'ankah';
 import CountUp from 'react-countup';
 import LanguageContext from '../contexts/LanguageContext';
 import SpeedDistance from './SpeedDistance';
