@@ -55,7 +55,7 @@ const Result = ({ value, language }) => (
             {lang.distance}
           </Label>
           <Counter className="result-item-counter">
-            {language === 'en' ? (
+            {language === 'en' || !language ? (
               <CountUp start={0} end={Number(value.distanceInKm.en)} delay={0}>
                 {({ countUpRef }) => (
                   <Count>
@@ -77,7 +77,7 @@ const Result = ({ value, language }) => (
             {lang.cost}
           </Label>
           <Counter className="result-item-counter">
-            {language === 'en' ? (
+            {language === 'en' || !language ? (
               <CountUp start={0} end={Number(value.fair.en)} delay={0}>
                 {({ countUpRef }) => (
                   <Count>
